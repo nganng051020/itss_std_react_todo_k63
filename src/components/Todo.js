@@ -16,11 +16,11 @@ import Filter from './Filter';
 import useStorage from '../hooks/storage';
 
 /* ライブラリ */
-import {getKey} from "../lib/util";
+import { getKey } from "../lib/util";
 
 function Todo() {
   const [items, putItems] = React.useState([
-      /* テストコード 開始 */
+    /* テストコード 開始 */
     { key: getKey(), text: '日本語の宿題', done: false },
     { key: getKey(), text: 'reactを勉強する', done: false },
     { key: getKey(), text: '明日の準備をする', done: false },
@@ -33,10 +33,10 @@ function Todo() {
         ITSS ToDoアプリ
       </div>
       {items.map(item => (
-        <label className="panel-block">
-            <input type="checkbox" />
-            {item.text}
-        </label>
+        <TodoItem
+          key={item.key}
+          item={item}
+        />
       ))}
       <div className="panel-block">
         {items.length} items
